@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .panel.panel-default
+    .panel-heading
+      h1 Tuesday
+    .panel-body
+      p: a.btn.btn-primary(href="/tuesday/new") New Task
+      table.table
+       thead
+        tr
+         th Task
+         th Date
+         th &nbsp;
+         th &nbsp;
+       tbody
+        each c in date
+         tr
+          td #{c.task}
+          td #{moment(c.taskDate, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}
+          th: a.btn.btn-default(href=`/tuesday/edit/${c.id}`) Edit
+          th: a.btn.btn-danger(href=`/tuesday/delete/${c.id}`) Delete

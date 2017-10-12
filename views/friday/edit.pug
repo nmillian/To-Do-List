@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  .panel.panel-default
+    .panel-heading
+      h1 Edit Task #{date.id}
+    .panel-body
+      form(action=`/friday/edit/${date.id}`, method="post")
+
+        include _form
+        button.btn.btn-primary(type="submit") Save

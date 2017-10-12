@@ -1,0 +1,24 @@
+.form-group
+    input.form-control(name="task", type="text", placeholder="Task", value=(wednesday?wednesday.task:undefined))
+
+    .row
+     .col.col-sm-4
+      .form-group
+         label(for="day") Day
+         select.form-control(name="day", required)
+          - var d = 1;
+            while d < 32
+               option(value=(d)) #{d}
+               - d++
+     .col.col-sm-4
+      .form-group
+         label(for="month") Month
+         select.form-control(name="month", required)
+          - var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+          each month, index in months
+            option(value=(index+1)) #{month}
+
+     .col.col-sm-4
+      .form-group
+         label(for="year") Year
+         input.form-control(name="year", type="number", min="2017", value="2017", required)
